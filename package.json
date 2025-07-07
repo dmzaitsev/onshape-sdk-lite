@@ -1,0 +1,26 @@
+{
+  "name": "onshape-sdk-lite",
+  "version": "1.0.0",
+  "description": "Minimal TypeScript Onshape SDK wrapper",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "onshape",
+    "api",
+    "typescript",
+    "sdk"
+  ],
+  "author": "Dmytro Zaitsev dmytro.zaitsev1@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "typescript": "^5.4.0"
+  }
+}
