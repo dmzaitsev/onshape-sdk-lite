@@ -19,7 +19,11 @@ This package provides lightweight utilities for working with Onshape documents, 
 
 ## 🔧 Usage
 
+```sh
+npm install onshape-sdk-lite
 ```
+
+```ts
 import { OnshapeSdk } from 'onshape-sdk-lite';
 
 OnshapeSdk.initializeSecrets({
@@ -48,4 +52,6 @@ console.log(createdAssembly);
 
 ## 📬 Contact
 
-Questions, feedback, or ideas? 📧 Email: dmytro.zaitsev1@gmail.com
+Questions, feedback, or ideas? 📧 Email: [dmytro.zaitsev1@gmail.com](dmytro.zaitsev1@gmail.com)
+
+[GitHub repo](https://github.com/dmzaitsev/onshape-sdk-lite)
