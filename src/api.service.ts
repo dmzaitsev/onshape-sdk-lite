@@ -64,21 +64,39 @@ export class OnshapeApiService {
     };
   }
 
-  public get<T>(apiUri: string): Promise<AxiosResponse<T, any>> {
+  public get<T>(apiUri: string, customHeaders: Record<string, any> = {}): Promise<AxiosResponse<T, any>> {
     return axios.get<T>(
       this.baseApiUrl + apiUri,
       {
-        headers: this.getHeaders(),
+        headers: {
+          ...customHeaders,
+          ...this.getHeaders()
+        }
       }
     );
   }
 
-  public post<T>(apiUri: string, body: any): Promise<AxiosResponse<T, any>> {
+  public post<T>(apiUri: string, body: any, customHeaders: Record<string, any> = {}): Promise<AxiosResponse<T, any>> {
     return axios.post<T>(
       this.baseApiUrl + apiUri,
       body,
       {
-        headers: this.getHeaders(),
+        headers: {
+          ...customHeaders,
+          ...this.getHeaders()
+        }
+      }
+    );
+  }
+
+  public postMultipart<T>(apiUri: string, formData: FormData): Promise<AxiosResponse<T, any>> {
+    return axios.post<T>(
+      this.baseApiUrl + apiUri,
+      formData,
+      {
+        headers: {
+          Authorization: this.getHeaders().Authorization,
+        }
       }
     );
   }

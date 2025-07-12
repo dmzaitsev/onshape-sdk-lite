@@ -4,6 +4,7 @@ import { OnshapeApiService } from './api.service';
 import { OnshapeAssemblyService } from './assembly/assembly.service';
 import { OnshapeConfig } from './config.service';
 import { OnshapeWebhookService } from './webhook/webhook.service';
+import { OnshapeBlobService } from './blobElement/blobElement.service';
 
 export class OnshapeSdk {
   private static config: OnshapeConfig = new OnshapeConfig();
@@ -38,6 +39,11 @@ export class OnshapeSdk {
   public static createAssemblyService(): OnshapeAssemblyService {
     OnshapeSdk.checkInitialized();
     return new OnshapeAssemblyService(OnshapeSdk.apiService);
+  }
+
+  public static createBlobService(): OnshapeBlobService {
+    OnshapeSdk.checkInitialized();
+    return new OnshapeBlobService(OnshapeSdk.apiService);
   }
 
   public static createWebhookService(): OnshapeWebhookService {
