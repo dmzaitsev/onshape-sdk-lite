@@ -1,9 +1,14 @@
-import { OnshapeDate, OnshapeHref, OnshapeId, OnshapeWVMType } from '../onshape.types';
+import {
+  OnshapeDate,
+  OnshapeHref,
+  OnshapeId,
+  OnshapeWVMType,
+} from '../onshape.types';
 
 export interface OnshapeDocument {
-  documentId: OnshapeId
-  wvm: OnshapeWVMType
-  wvmId: OnshapeId
+  documentId: OnshapeId;
+  wvm: OnshapeWVMType;
+  wvmId: OnshapeId;
 }
 
 export interface OnshapeDocumentInfo {
@@ -93,110 +98,9 @@ export interface OnshapeDocumentInfo {
     name: string;
     overrideDate: OnshapeDate;
     parent: string;
-    parents: [
-      {
-        createdAt: OnshapeDate;
-        creator: {
-          href: OnshapeHref;
-          id: OnshapeId;
-          name: string;
-          viewRef: string;
-          image: string;
-          isOnshapeSupport: boolean;
-          state: number;
-          jsonType: string;
-        };
-        description: string;
-        documentId: string;
-        href: OnshapeHref;
-        id: OnshapeId;
-        lastModifier: {
-          href: OnshapeHref;
-          id: OnshapeId;
-          name: string;
-          viewRef: string;
-          image: string;
-          isOnshapeSupport: boolean;
-          state: number;
-          jsonType: string;
-        };
-        metadataWorkspaceId: string;
-        microversion: string;
-        modifiedAt: OnshapeDate;
-        name: string;
-        overrideDate: OnshapeDate;
-        parent: string;
-        purpose: number;
-        thumbnail: {
-          href: OnshapeHref;
-          id: OnshapeId;
-          secondarySizes: [
-            [
-              {
-                href: OnshapeHref;
-                mediaType: string;
-                renderMode: string;
-                sheetName: string;
-                size: string;
-                uniqueId: string;
-                viewOrientation: string;
-              },
-            ],
-          ];
-          sizes: [
-            {
-              href: OnshapeHref;
-              mediaType: string;
-              renderMode: string;
-              sheetName: string;
-              size: string;
-              uniqueId: string;
-              viewOrientation: string;
-            },
-          ];
-        };
-        type: string;
-        viewRef: string;
-      },
-    ];
-    protectionRule: string;
-    state: string;
-    thumbnail: {
-      href: OnshapeHref;
-      id: OnshapeId;
-      secondarySizes: [
-        [
-          {
-            href: OnshapeHref;
-            mediaType: string;
-            renderMode: string;
-            sheetName: string;
-            size: string;
-            uniqueId: string;
-            viewOrientation: string;
-          },
-        ],
-      ];
-      sizes: [
-        {
-          href: OnshapeHref;
-          mediaType: string;
-          renderMode: string;
-          sheetName: string;
-          size: string;
-          uniqueId: string;
-          viewOrientation: string;
-        },
-      ];
-    };
-    type: string;
-    viewRef: string;
-  };
-  documentLabels: [
-    {
-      canMove: boolean;
+    parents: {
       createdAt: OnshapeDate;
-      createdBy: {
+      creator: {
         href: OnshapeHref;
         id: OnshapeId;
         name: string;
@@ -207,14 +111,10 @@ export interface OnshapeDocumentInfo {
         jsonType: string;
       };
       description: string;
+      documentId: string;
       href: OnshapeHref;
       id: OnshapeId;
-      isContainer: boolean;
-      isEnterpriseOwned: boolean;
-      isMutable: boolean;
-      jsonType: string;
-      modifiedAt: OnshapeDate;
-      modifiedBy: {
+      lastModifier: {
         href: OnshapeHref;
         id: OnshapeId;
         name: string;
@@ -224,25 +124,115 @@ export interface OnshapeDocumentInfo {
         state: number;
         jsonType: string;
       };
+      metadataWorkspaceId: string;
+      microversion: string;
+      modifiedAt: OnshapeDate;
       name: string;
-      owner: {
+      overrideDate: OnshapeDate;
+      parent: string;
+      purpose: number;
+      thumbnail: {
         href: OnshapeHref;
         id: OnshapeId;
-        image: string;
-        isEnterpriseOwnedResource: boolean;
-        name: string;
-        type: number;
-        viewRef: string;
+        secondarySizes: {
+          href: OnshapeHref;
+          mediaType: string;
+          renderMode: string;
+          sheetName: string;
+          size: string;
+          uniqueId: string;
+          viewOrientation: string;
+        }[];
+        sizes: {
+          href: OnshapeHref;
+          mediaType: string;
+          renderMode: string;
+          sheetName: string;
+          size: string;
+          uniqueId: string;
+          viewOrientation: string;
+        }[];
       };
-      projectId: string;
-      resourceType: string;
-      treeHref: string;
-      unparentHref: OnshapeHref;
+      type: string;
       viewRef: string;
-      parentLabelId: string;
-      path: string;
-    },
-  ];
+    }[];
+    protectionRule: string;
+    state: string;
+    thumbnail: {
+      href: OnshapeHref;
+      id: OnshapeId;
+      secondarySizes: {
+        href: OnshapeHref;
+        mediaType: string;
+        renderMode: string;
+        sheetName: string;
+        size: string;
+        uniqueId: string;
+        viewOrientation: string;
+      }[];
+
+      sizes: {
+        href: OnshapeHref;
+        mediaType: string;
+        renderMode: string;
+        sheetName: string;
+        size: string;
+        uniqueId: string;
+        viewOrientation: string;
+      }[];
+    };
+    type: string;
+    viewRef: string;
+  };
+  documentLabels: {
+    canMove: boolean;
+    createdAt: OnshapeDate;
+    createdBy: {
+      href: OnshapeHref;
+      id: OnshapeId;
+      name: string;
+      viewRef: string;
+      image: string;
+      isOnshapeSupport: boolean;
+      state: number;
+      jsonType: string;
+    };
+    description: string;
+    href: OnshapeHref;
+    id: OnshapeId;
+    isContainer: boolean;
+    isEnterpriseOwned: boolean;
+    isMutable: boolean;
+    jsonType: string;
+    modifiedAt: OnshapeDate;
+    modifiedBy: {
+      href: OnshapeHref;
+      id: OnshapeId;
+      name: string;
+      viewRef: string;
+      image: string;
+      isOnshapeSupport: boolean;
+      state: number;
+      jsonType: string;
+    };
+    name: string;
+    owner: {
+      href: OnshapeHref;
+      id: OnshapeId;
+      image: string;
+      isEnterpriseOwnedResource: boolean;
+      name: string;
+      type: number;
+      viewRef: string;
+    };
+    projectId: string;
+    resourceType: string;
+    treeHref: string;
+    unparentHref: OnshapeHref;
+    viewRef: string;
+    parentLabelId: string;
+    path: string;
+  }[];
   documentType: number;
   forceExportRules: boolean;
   hasReleaseRevisionableObjects: boolean;
@@ -257,7 +247,7 @@ export interface OnshapeDocumentInfo {
   numberOfTimesReferenced: number;
   parentId: string;
   permission: string;
-  permissionSet: [string];
+  permissionSet: string[];
   public: boolean;
   publishedVersionId: string;
   recentVersion: {
@@ -272,30 +262,25 @@ export interface OnshapeDocumentInfo {
   thumbnail: {
     href: OnshapeHref;
     id: OnshapeId;
-    secondarySizes: [
-      [
-        {
-          href: OnshapeHref;
-          mediaType: string;
-          renderMode: string;
-          sheetName: string;
-          size: string;
-          uniqueId: string;
-          viewOrientation: string;
-        },
-      ],
-    ];
-    sizes: [
-      {
-        href: OnshapeHref;
-        mediaType: string;
-        renderMode: string;
-        sheetName: string;
-        size: string;
-        uniqueId: string;
-        viewOrientation: string;
-      },
-    ];
+    secondarySizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
+
+    sizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
   };
   totalWorkspacesScheduledForUpdate: number;
   totalWorkspacesUpdating: number;
@@ -309,132 +294,120 @@ export interface OnshapeDocumentInfo {
 }
 
 export interface OnshapeDocumentVersion {
-  createdAt: OnshapeDate
+  createdAt: OnshapeDate;
   creator: {
-    href: OnshapeHref
-    id: OnshapeId
-    name: string
-    viewRef: OnshapeHref
-    image: string
-    isOnshapeSupport: boolean
-    state: number
-    jsonType: string
-  },
-  description: string
-  documentId: OnshapeId
-  href: OnshapeHref
-  id: OnshapeId
+    href: OnshapeHref;
+    id: OnshapeId;
+    name: string;
+    viewRef: OnshapeHref;
+    image: string;
+    isOnshapeSupport: boolean;
+    state: number;
+    jsonType: string;
+  };
+  description: string;
+  documentId: OnshapeId;
+  href: OnshapeHref;
+  id: OnshapeId;
   lastModifier: {
-    href: OnshapeHref
-    id: OnshapeId
-    name: string
-    viewRef: OnshapeHref
-    image: string
-    isOnshapeSupport: boolean
-    state: number
-    jsonType: string
-  },
-  metadataWorkspaceId: OnshapeId
-  microversion: OnshapeId
-  modifiedAt: OnshapeDate
-  name: string
-  overrideDate: OnshapeDate
-  parent: string
-  purpose: number
+    href: OnshapeHref;
+    id: OnshapeId;
+    name: string;
+    viewRef: OnshapeHref;
+    image: string;
+    isOnshapeSupport: boolean;
+    state: number;
+    jsonType: string;
+  };
+  metadataWorkspaceId: OnshapeId;
+  microversion: OnshapeId;
+  modifiedAt: OnshapeDate;
+  name: string;
+  overrideDate: OnshapeDate;
+  parent: string;
+  purpose: number;
   thumbnail: {
-    href: OnshapeHref
-    id: OnshapeId
-    secondarySizes: [
-      [
-        {
-          href: OnshapeHref
-          mediaType: string
-          renderMode: string
-          sheetName: string
-          size: string
-          uniqueId: string
-          viewOrientation: string
-        }
-      ]
-    ],
-    sizes: [
-      {
-        href: OnshapeHref
-        mediaType: string
-        renderMode: string
-        sheetName: string
-        size: string
-        uniqueId: string
-        viewOrientation: string
-      }
-    ]
-  },
-  type: string
-  viewRef: OnshapeHref
+    href: OnshapeHref;
+    id: OnshapeId;
+    secondarySizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
+    sizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
+  };
+  type: string;
+  viewRef: OnshapeHref;
 }
 
 export interface OnshapeDocumentTab {
-  accelerationUnits: string
-  angleUnits: string
-  angularVelocityUnits: string
+  accelerationUnits: string;
+  angleUnits: string;
+  angularVelocityUnits: string;
   applicationTarget: {
-    baseHref: string
-    clientId: string
-    supportsCollaboration: boolean
-    tabIconHref: string
-  },
-  areaUnits: string
-  dataType: string
-  deleted: boolean
-  elementType: string
-  energyUnits: string
-  filename: string
-  forceUnits: string
-  foreignDataId: string
-  id: OnshapeId
-  lengthUnits: string
-  massUnits: string
-  microversionId: OnshapeId
-  momentUnits: string
-  name: string
-  pressureUnits: string
-  prettyType: string
-  safeToShow: boolean
-  specifiedUnit: string
+    baseHref: string;
+    clientId: string;
+    supportsCollaboration: boolean;
+    tabIconHref: string;
+  };
+  areaUnits: string;
+  dataType: string;
+  deleted: boolean;
+  elementType: string;
+  energyUnits: string;
+  filename: string;
+  forceUnits: string;
+  foreignDataId: string;
+  id: OnshapeId;
+  lengthUnits: string;
+  massUnits: string;
+  microversionId: OnshapeId;
+  momentUnits: string;
+  name: string;
+  pressureUnits: string;
+  prettyType: string;
+  safeToShow: boolean;
+  specifiedUnit: string;
   thumbnailInfo: {
-    href: OnshapeHref
-    id: OnshapeId
-    secondarySizes: [
-      [
-        {
-          href: OnshapeHref
-          mediaType: string
-          renderMode: string
-          sheetName: string
-          size: string
-          uniqueId: string
-          viewOrientation: string
-        }
-      ]
-    ],
-    sizes: [
-      {
-        href: OnshapeHref
-        mediaType: string
-        renderMode: string
-        sheetName: string
-        size: string
-        uniqueId: string
-        viewOrientation: string
-      }
-    ]
-  },
-  thumbnails: string
-  timeUnits: string
-  type: string
-  unupdatable: boolean
-  volumeUnits: string
+    href: OnshapeHref;
+    id: OnshapeId;
+    secondarySizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
+    sizes: {
+      href: OnshapeHref;
+      mediaType: string;
+      renderMode: string;
+      sheetName: string;
+      size: string;
+      uniqueId: string;
+      viewOrientation: string;
+    }[];
+  };
+  thumbnails: string;
+  timeUnits: string;
+  type: string;
+  unupdatable: boolean;
+  volumeUnits: string;
   zip: {
-    files: string[]
-  }
+    files: string[];
+  };
 }
