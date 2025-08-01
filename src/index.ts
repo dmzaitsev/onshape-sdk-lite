@@ -1,10 +1,10 @@
-
-import { OnshapeDocumentService } from './document/document.service';
+import { OnshapeAccountService } from './account/account.service';
 import { OnshapeApiService } from './api.service';
 import { OnshapeAssemblyService } from './assembly/assembly.service';
-import { OnshapeConfig } from './config.service';
-import { OnshapeWebhookService } from './webhook/webhook.service';
 import { OnshapeBlobService } from './blobElement/blobElement.service';
+import { OnshapeConfig } from './config.service';
+import { OnshapeDocumentService } from './document/document.service';
+import { OnshapeWebhookService } from './webhook/webhook.service';
 
 export class OnshapeSdk {
   private static config: OnshapeConfig = new OnshapeConfig();
@@ -25,7 +25,10 @@ export class OnshapeSdk {
     OnshapeSdk.initialized = true;
   }
 
-  public static initializeSecrets(credentials: { clientId: string; clientSecret: string }): void {
+  public static initializeSecrets(credentials: {
+    clientId: string;
+    clientSecret: string;
+  }): void {
     OnshapeSdk.config.setApiKeys(credentials);
     OnshapeSdk.apiService = new OnshapeApiService(OnshapeSdk.config);
     OnshapeSdk.initialized = true;
@@ -34,6 +37,11 @@ export class OnshapeSdk {
   public static createDocumentService(): OnshapeDocumentService {
     OnshapeSdk.checkInitialized();
     return new OnshapeDocumentService(OnshapeSdk.apiService);
+  }
+
+  public static createAccountService(): OnshapeAccountService {
+    OnshapeSdk.checkInitialized();
+    return new OnshapeAccountService(OnshapeSdk.apiService);
   }
 
   public static createAssemblyService(): OnshapeAssemblyService {
