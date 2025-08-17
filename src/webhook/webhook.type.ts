@@ -126,6 +126,7 @@ export enum OnshapeWebhookType {
   TRANSLATION_COMPLETE = 'onshape.model.translation.complete', // Occurs when a translation request is complete
 
   DOCUMENT_CREATED = 'onshape.document.lifecycle.created', // Occurs when a document is created
+  DOCUMENT_SHARED = 'onshape.document.lifecycle.shared', // Occurs when a document share is created, modified, or removed (via the Share dialog only)
   VERSION_CREATED = 'onshape.model.lifecycle.createversion', // Occurs when a new version of a document is created
   WORKSPACE_CREATED = 'onshape.model.lifecycle.createworkspace', // Occurs when a new workspace is created
   REVISION_CREATED = 'onshape.revision.created', // Occurs when a revision is created
